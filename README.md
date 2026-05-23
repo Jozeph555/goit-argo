@@ -3,6 +3,7 @@
 The project demonstrates a GitOps approach to deploying applications to Kubernetes (EKS) via ArgoCD. Changes in Git are automatically applied to the cluster.
 
 ## Repo structure
+```
 goit-argo/
 ├── namespaces/
 │   ├── application/
@@ -12,6 +13,7 @@ goit-argo/
 │       └── ns.yaml         # Namespace: infra-tools
 ├── application.yaml        # ArgoCD Application manifesto
 └── README.md
+```
 
 ## Prerequisites
 
