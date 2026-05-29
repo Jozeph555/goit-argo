@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://prometheus-community.github.io/helm-charts
     chart: pushgateway
-    targetRevision: 3.6.1
+    targetRevision: 2.15.0
     helm:
       valuesObject:
         service:
