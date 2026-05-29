@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mlflow-postgres
+  namespace: infra-tools
+spec:
+  destination:
+    namespace: application
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://github.com/Jozeph555/goit-argo.git
+    targetRevision: main
+    path: namespaces/application/postgres
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
