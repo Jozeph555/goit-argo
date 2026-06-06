@@ -33,6 +33,12 @@ spec:
             serviceMonitorSelectorNilUsesHelmValues: false
             retention: 2d
             additionalScrapeConfigs:
+              - job_name: aiops-inference
+                static_configs:
+                  - targets:
+                      - aiops-inference.application.svc.cluster.local:8000
+                metrics_path: /metrics
+                scrape_interval: 15s
               - job_name: pushgateway
                 honor_labels: true
                 static_configs:
