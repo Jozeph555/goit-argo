@@ -15,13 +15,13 @@ spec:
           enabled: true
           persistence:
             enabled: false
+          sidecar:
+            datasources:
+              enabled: false
         promtail:
           enabled: true
         grafana:
           enabled: false
-          sidecar:
-            datasources:
-              enabled: false
         prometheus:
           enabled: false
         test:
