@@ -76,6 +76,10 @@ spec:
               url: http://loki-stack.infra-tools:3100
               access: proxy
               isDefault: false
+              jsonData:
+                maxLines: 1000
+              jsonData:
+                maxLines: 1000
         prometheusOperator:
           admissionWebhooks:
             enabled: false
