@@ -15,16 +15,13 @@ spec:
       valuesObject:
         grafana:
           enabled: false
-          sidecar:
-            datasources:
-              enabled: false
-        datasource:
-          enabled: false
         prometheus:
           enabled: false
         loki:
           persistence:
             enabled: false
+        datasource:
+          elabled: false
         promtail:
           enabled: true
           tolerations:
