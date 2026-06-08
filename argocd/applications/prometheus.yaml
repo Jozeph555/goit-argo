@@ -59,26 +59,6 @@ spec:
           ingress:
             enabled: false
           adminPassword: prom-operator
-          sidecar:
-            datasources:
-              enabled: true
-              defaultDatasourceEnabled: false
-              searchNamespace: ALL
-              label: grafana_datasource_prometheus
-              labelValue: 1
-          additionalDataSources:
-            - name: Prometheus
-              type: prometheus
-              uid: prometheus
-              url: http://prometheus-operator-prometheus.infra-tools:9090
-              access: proxy
-              isDefault: true
-            - name: Loki
-              type: loki
-              uid: loki-custom
-              url: http://loki.infra-tools:3100
-              access: proxy
-              isDefault: false
         prometheusOperator:
           admissionWebhooks:
             enabled: false
