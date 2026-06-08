@@ -26,6 +26,13 @@ spec:
   destination:
     namespace: infra-tools
     server: https://kubernetes.default.svc
+  ignoreDifferences:
+    - group: ""
+      kind: ConfigMap
+      name: loki-stack
+      jsonPointers:
+        - /metadata/labels/grafana_datasource
+        - /data
   syncPolicy:
     automated:
       prune: true
