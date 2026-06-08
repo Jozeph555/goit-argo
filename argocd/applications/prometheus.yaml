@@ -71,8 +71,12 @@ spec:
               access: proxy
               isDefault: true
 
-              jsonData:
-                maxLines: 1000
+            - name: Loki
+              type: loki
+              uid: loki
+              url: http://loki.infra-tools:3100
+              access: proxy
+              isDefault: false
         prometheusOperator:
           admissionWebhooks:
             enabled: false
