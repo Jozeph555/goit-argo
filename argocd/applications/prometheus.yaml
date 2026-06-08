@@ -70,14 +70,7 @@ spec:
               url: http://prometheus-operator-prometheus.infra-tools:9090
               access: proxy
               isDefault: true
-            - name: Loki
-              type: loki
-              uid: loki
-              url: http://loki-stack.infra-tools:3100
-              access: proxy
-              isDefault: false
-              jsonData:
-                maxLines: 1000
+
               jsonData:
                 maxLines: 1000
         prometheusOperator:
