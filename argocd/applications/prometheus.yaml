@@ -59,6 +59,23 @@ spec:
           ingress:
             enabled: false
           adminPassword: prom-operator
+          sidecar:
+            datasources:
+              enabled: true
+              defaultDatasourceEnabled: false
+          additionalDataSources:
+            - name: Prometheus
+              type: prometheus
+              uid: prometheus
+              url: http://prometheus-operator-prometheus.infra-tools:9090
+              access: proxy
+              isDefault: true
+            - name: Loki
+              type: loki
+              uid: loki
+              url: http://loki-stack.infra-tools:3100
+              access: proxy
+              isDefault: false
         prometheusOperator:
           admissionWebhooks:
             enabled: false
