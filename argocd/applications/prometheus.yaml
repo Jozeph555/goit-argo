@@ -14,7 +14,7 @@ spec:
     targetRevision: 75.16.1
     chart: kube-prometheus-stack
     helm:
-      values: |
+      valuesObject:
         nameOverride: "prometheus-operator"
         defaultRules:
           create: true
@@ -63,7 +63,10 @@ spec:
             datasources:
               enabled: true
               defaultDatasourceEnabled: false
-          additionalDataSources: |
+              searchNamespace: ALL
+              label: grafana_datasource_prometheus
+              labelValue: 1
+          additionalDataSources:
             - name: Prometheus
               type: prometheus
               uid: prometheus
@@ -72,7 +75,7 @@ spec:
               isDefault: true
             - name: Loki
               type: loki
-              uid: loki
+              uid: loki-custom
               url: http://loki.infra-tools:3100
               access: proxy
               isDefault: false
