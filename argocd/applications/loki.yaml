@@ -26,6 +26,12 @@ spec:
   destination:
     namespace: infra-tools
     server: https://kubernetes.default.svc
+  ignoreDifferences:
+    - group: ""
+      kind: ConfigMap
+      name: loki-stack
+      jqPathExpressions:
+        - .data["loki-stack-datasource.yaml"]
   syncPolicy:
     automated:
       prune: true
