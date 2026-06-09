@@ -63,6 +63,16 @@ spec:
             datasources:
               enabled: true
               defaultDatasourceEnabled: false
+          additionalDataSources:
+            - name: Prometheus
+              type: prometheus
+              uid: prometheus
+              url: http://prometheus-operator-prometheus.infra-tools:9090
+              access: proxy
+              isDefault: false
+              jsonData:
+                httpMethod: POST
+                timeInterval: 30s
         prometheusOperator:
           admissionWebhooks:
             enabled: false
