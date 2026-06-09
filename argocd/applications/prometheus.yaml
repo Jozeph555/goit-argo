@@ -59,6 +59,10 @@ spec:
           ingress:
             enabled: false
           adminPassword: prom-operator
+          sidecar:
+            datasources:
+              enabled: true
+              defaultDatasourceEnabled: false
         prometheusOperator:
           admissionWebhooks:
             enabled: false
