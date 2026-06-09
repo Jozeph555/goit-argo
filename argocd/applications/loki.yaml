@@ -1,38 +1,34 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: loki
+  name: loki-stack
+  namespace: infra-tools
 spec:
-  destination:
-    namespace: infra-tools
-    server: "https://kubernetes.default.svc"
-  project: cluster-addons
+  project: default
   source:
     repoURL: https://grafana.github.io/helm-charts
     chart: loki-stack
-    targetRevision: 2.9.10
+    targetRevision: 2.10.2
     helm:
       valuesObject:
-        grafana:
-          enabled: false
-          sidecar:
-            datasources:
-              enabled: false
-        prometheus:
-          enabled: false
         loki:
+          enabled: true
           persistence:
             enabled: false
         promtail:
           enabled: true
-          tolerations:
-            - key: usage
-              operator: Equal
-              value: infrastructure
-              effect: NoSchedule
+        grafana:
+          enabled: false
+        prometheus:
+          enabled: false
         test:
           enabled: false
+  destination:
+    namespace: infra-tools
+    server: https://kubernetes.default.svc
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
